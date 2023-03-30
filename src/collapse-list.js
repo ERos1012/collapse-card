@@ -25,17 +25,17 @@ class collapseList extends LitElement {
         ${this.searchList.map(
           (collapse) => html`
             <div class="item">
-              <collapse-card
-                badgeHeader="${collapse.badgeHeader}"
-                badgeName="${collapse.badgeName}"
-                badgeUrl="${collapse.badgeUrl}"
-                badgeDescription="${collapse.badgeDescription}"
-                badgeImage="${collapse.badgeImage}"
-                badgeCreator="${collapse.badgeCreator}"
-                timeToComplete="${collapse.timeToComplete}"
-                stepsName="${collapse.stepsName}"
-                stepsDescription="${collapse.stepsDescription}"
-                stepsTime="${collapse.stepsTime}"
+            <collapse-card
+                badge-header="${collapse.badgeHeader}"
+                badge-name="${collapse.badgeName}"
+                badge-url="${collapse.badgeUrl}"
+                badge-description="${collapse.badgeDescription}"
+                badge-image="${collapse.badgeImage}"
+                badge-creator="${collapse.badgeCreator}"
+                time-to-complete="${collapse.timeToComplete}"
+                steps-name="${collapse.stepsName}"
+                steps-description="${collapse.stepsDescription}"
+                steps-time="${collapse.stepsTime}"
               ></collapse-card>
             </div>
           `
