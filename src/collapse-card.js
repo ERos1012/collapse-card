@@ -1,88 +1,75 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from "lit";
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
 class CollapseCard extends LitElement {
   static properties = {
-    header: { type: String },
-  }
+    badgeHeader: { type: String, attribute: "badge-header"},
+    badgeName: { type: String, attribute: "badge-name"},
+    badgeUrl: { type: String, attribute: "badge-url"},
+    badgeDescription: { type: String, attribute: "badge-description"},
+    badgeImage: { type: String, attribute: "badge-image" },
+    badgeCreator: { type: String, attribute: "badge-creator" },
+    timeToComplete: { type: String, attribute: "time-to-complete" },
+    stepsName: { type: String, attribute: "steps-name" },
+    stepsDescription: { type: String, attribute: "steps-description" },
+    stepsTime: { type: String, attribute: "steps-time" },
+  };
 
   static styles = css`
-    :host {
-      min-height: 100vh;
-      display: flex;
+    .wrapper {
+      border: 1px solid black;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .image {
+      display: inline-flex;
+      width: 100px;
+      height: 100px;
+    }
+    .item {
+      display: inline-flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: calc(10px + 2vmin);
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      background-color: var(--collapse-card-background-color);
-    }
-
-    main {
-      flex-grow: 1;
-    }
-
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
-
-    .app-footer a {
-      margin-left: 5px;
+      align-items: left;
     }
   `;
 
   constructor() {
     super();
-    this.header = 'My app';
+    this.badgeHeader = "Badge Header";
+    this.badgeName = "Badge Name";
+    this.badgeUrl = "Badge Url";
+    this.badgeDescription = "Badge Description";
+    this.badgeImage = imageURL;
+    this.badgeCreator = "Badge Creator";
+    this.timeToComplete = "0";
+    this.stepsName = "Steps Name";
+    this.stepsDescription = "Steps Description";
+    this.stepsTime = "0";
   }
 
   render() {
     return html`
-      <main>
-        <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
-        <h1>${this.header}</h1>
-
-        <p>Edit <code>src/CollapseCard.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
-      </main>
-
-      <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p>
+      <div class="wrapper">
+        <div class="image">
+          <img src="${this.badgeImage}" alt="Badge Image" />
+        </div>
+        <div class="item">
+        <summary><h2>${this.badgeHeader}</h2></summary>
+          <details>
+            <h3>${this.badgeName}</h3>
+            <p>${this.badgeDescription}</p>
+            <p>${this.badgeCreator}</p>
+            <p>${this.timeToComplete}</p>
+            <p>${this.stepsName}</p>
+            <p>${this.stepsDescription}</p>
+            <p>${this.stepsTime}</p>
+          </details>
+        </div>
+      </div>
+    
     `;
   }
 }
 
-customElements.define('collapse-card', CollapseCard);
+customElements.define("collapse-card", CollapseCard);

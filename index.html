@@ -1,28 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
-  <base href="/">
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+    </style>
+    <title>collapse-card</title>
+  </head>
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
-    }
-  </style>
-  <title>collapse-card</title>
-</head>
+  <body>
+    <script type="module">
+      import "./src/search-bar.js";
+      import "./src/collapse-card.js";
+      import "./src/collapse-list.js";
+    </script>
 
-<body>
-  <collapse-card></collapse-card>
-
-  <script type="module" src="./src/collapse-card.js"></script>
-</body>
-
+    <search-bar></search-bar>
+    <collapse-list></collapse-list>
+    <collapse-card></collapse-card>
+  </body>
 </html>
