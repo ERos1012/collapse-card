@@ -1,6 +1,8 @@
 import { LitElement, html, css } from "lit";
-
+import "@lrnwebcomponents/simple-icon/simple-icon.js";
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
+
 
 class CollapseCard extends LitElement {
   static properties = {
@@ -52,7 +54,8 @@ class CollapseCard extends LitElement {
     return html`
       <div class="wrapper">
         <div class="image">
-          <img src="${this.badgeImage}" alt="Badge Image" />
+        <!--<img src="${this.badgeImage}" alt="Badge Image" /> -->
+       <simple-icon accent-color="yellow" icon="hardware:device-hub"> </simple-icon> 
         </div>
         <div class="item">
         <summary><h2>${this.badgeHeader}</h2></summary>
