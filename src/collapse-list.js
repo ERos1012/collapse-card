@@ -1,4 +1,6 @@
 import { LitElement, html, css } from "lit";
+const searchBar = document.getElementById("searchbar");
+
 
 class collapseList extends LitElement {
   static properties = {
@@ -26,16 +28,16 @@ class collapseList extends LitElement {
           (collapse) => html`
             <div class="item">
             <collapse-card
-                badge-header="${collapse.badgeHeader}"
-                badge-name="${collapse.badgeName}"
-                badge-url="${collapse.badgeUrl}"
-                badge-description="${collapse.badgeDescription}"
-                badge-image="${collapse.badgeImage}"
-                badge-creator="${collapse.badgeCreator}"
-                time-to-complete="${collapse.timeToComplete}"
-                steps-name="${collapse.stepsName}"
-                steps-description="${collapse.stepsDescription}"
-                steps-time="${collapse.stepsTime}"
+                badgeHeader="${collapse.badgeHeader}"
+                badgeName="${collapse.badgeName}"
+                badgeUrl="${collapse.badgeUrl}"
+                badgeDescription="${collapse.badgeDescription}"
+                badgeImage="${collapse.badgeImage}"
+                badgeCreator="${collapse.badgeCreator}"
+                timeToComplete="${collapse.timeToComplete}"
+                stepsName="${collapse.stepsName}"
+                stepsDescription="${collapse.stepsDescription}"
+                stepsTime="${collapse.stepsTime}"
               ></collapse-card>
             </div>
           `
@@ -43,6 +45,8 @@ class collapseList extends LitElement {
       </div>
     `;
   }
+  
+    
 
   getData() {
     const address = new URL("../assets/search-data.json", import.meta.url).href;

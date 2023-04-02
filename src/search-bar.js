@@ -34,7 +34,7 @@ class searchBar extends LitElement {
     input:hover:not(:focus) {
       border-bottom: 2px solid grey;
     }
-    .searchbar {
+    #searchbar {
       width: 100%;
       max-width: 500px;
     }
@@ -57,19 +57,36 @@ class searchBar extends LitElement {
   render() {
     return html`
       <div class="wrapper">
-        <input type="text" class="searchbar" placeholder="Search"
-        @input="${this.inputListener}"/>
+        <input
+          type="text"
+          id="searchbar"
+          placeholder="Search"
+          @keyup="${this.inputListener}"
+        />
       </div>
     `;
   }
 
   inputListener(e) {
-    const value = e.target.value;
-    console.log(value);
-    console.log(this.searchList);
-  }
+    const searchString = e.target.value.toLowerCase();
 
- 
+    this.searchList.filter((searchList) => {
+      const isVisible =
+        searchList.badgeHeader.contains(searchString) ||
+        searchList.badgeName.contains(searchString) ||
+        searchList.badgeURL.contains(searchString) ||
+        searchList.badgeDescription.contains(searchString) ||
+        searchList.badgeCreator.contains(searchString) ||
+        searchList.timeToComplete.contains(searchString) ||
+        searchList.stepsName.contains(searchString) ||
+        searchList.stepsDescription.contains(searchString) ||
+        searchList.stepsTime.contains(searchString);
+      searchList.element.classList.toggle("hide", !isVisible);
+      console.log(searchString);
+    });
+    console.log(this.searchList);
+
+  }
 }
 
 customElements.define("search-bar", searchBar);
