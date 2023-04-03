@@ -20,20 +20,30 @@ class CollapseCard extends LitElement {
 
   static styles = css`
     .wrapper {
+      background-color: lightblue;
       border: 1px solid black;
       display: flex;
       align-items: center;
     }
     .image {
       display: inline-flex;
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
     }
     .item {
       display: inline-flex;
       flex-direction: column;
       align-items: left;
     }
+    .badgeNamecss{
+      font-size: 10px;
+      color: black;
+    }
+    .backGroundColor{
+      background-color: light blue;
+      border-color: dark blue;
+    }
+
   `;
 
   constructor() {
@@ -58,7 +68,9 @@ class CollapseCard extends LitElement {
        <simple-icon accent-color="yellow" icon="hardware:device-hub"> </simple-icon> 
         </div>
         <div class="item">
+          <div class = "badgeNamecss">
         <summary><h2>${this.badgeHeader}</h2></summary>
+        </div>
           <details>
             <h3>${this.badgeName}</h3>
             <p>${this.badgeDescription}</p>
