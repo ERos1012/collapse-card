@@ -1,8 +1,6 @@
 import { LitElement, html, css } from "lit";
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
-const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
-
 
 class CollapseCard extends LitElement {
   static properties = {
@@ -14,6 +12,7 @@ class CollapseCard extends LitElement {
     badgeCreator: { type: String },
     timeToComplete: { type: String},
     stepsName: { type: String},
+    icon: { type: String},
     stepsDescription: { type: String},
     stepsTime: { type: String},
   };
@@ -58,6 +57,7 @@ class CollapseCard extends LitElement {
     this.stepsName = "Steps Name";
     this.stepsDescription = "Steps Description";
     this.stepsTime = "0";
+    this.icon = "hardware:device-hub";
   }
 
   render() {
@@ -65,7 +65,7 @@ class CollapseCard extends LitElement {
       <div class="wrapper">
         <div class="image">
         <!--<img src="${this.badgeImage}" alt="Badge Image" /> -->
-       <simple-icon accent-color="yellow" icon="hardware:device-hub"> </simple-icon> 
+       <simple-icon accent-color="yellow" icon="${this.icon}"> </simple-icon> 
         </div>
         <div class="item">
           <div class = "badgeNamecss">
