@@ -4,7 +4,7 @@
       "badgeName": "Badge Name",
       "badgeUrl": "Badge Url",
       "badgeDescription": "Badge Description",
-      "badgeImage": "Badge Image",
+      "badgeImage": "this.icon= ",
       "badgeCreator": "Badge Creator",
       "timeToComplete": "Time To Complete",
       "stepsName": "Steps Name",
