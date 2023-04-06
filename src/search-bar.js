@@ -2,7 +2,7 @@ import { LitElement, html, css } from "lit";
 
 class searchBar extends LitElement {
   static properties = {
-    search: { type: String },
+    searchString: { type: String },
     searchList: { type: Array },
   };
 
@@ -23,13 +23,9 @@ class searchBar extends LitElement {
       font-size: 20px;
       font-weight: bold;
       border: none;
-      border-bottom: 1px solid black;
-      transition: all 0.3s ease-in-out;
     }
     input:focus {
-      border-bottom: 2px solid blue;
       outline: 1px solid grey;
-      outline-offset: 4px;
     }
     input:hover:not(:focus) {
       border-bottom: 2px solid grey;
@@ -38,20 +34,14 @@ class searchBar extends LitElement {
       width: 100%;
       max-width: 500px;
     }
-
-    /** accessibility enhancement to not animate the changes possibly
-    for users that have motion activated disabilities **/
-    @media (prefers-reduced-motion) {
-      input {
-        transition: none;
-      }
-    }
   `;
 
   constructor() {
     super();
-    this.search = "";
+    this.searchString = "";
     this.searchList = [];
+    this.getData();
+    this.searchThis(this.searchList, this.searchString);
   }
 
   render() {
@@ -59,33 +49,46 @@ class searchBar extends LitElement {
       <div class="wrapper">
         <input
           type="text"
+          accent-color="black"
           id="searchbar"
-          placeholder="Search"
-          @keyup="${this.inputListener}"
+          placeholder="Search Content, Topics, and People"
+          @input="${this.wordChanged}"
         />
       </div>
     `;
   }
 
-  inputListener(e) {
-    const searchString = e.target.value.toLowerCase();
-
-    this.searchList.filter((searchList) => {
-      const isVisible =
-        searchList.badgeHeader.contains(searchString) ||
-        searchList.badgeName.contains(searchString) ||
-        searchList.badgeURL.contains(searchString) ||
-        searchList.badgeDescription.contains(searchString) ||
-        searchList.badgeCreator.contains(searchString) ||
-        searchList.timeToComplete.contains(searchString) ||
-        searchList.stepsName.contains(searchString) ||
-        searchList.stepsDescription.contains(searchString) ||
-        searchList.stepsTime.contains(searchString);
-      searchList.element.classList.toggle("hide", !isVisible);
-      console.log(searchString);
+  searchThis(searchList, searchString) {
+    const words = searchString.split(/\s+/);
+    return searchList.filter((element) => {
+      for (const word of words) {
+        if (!element.badgeHeader.toLowerCase().includes(word.toLowerCase())) {
+          return false;
+        }
+      }
+      return true;
     });
-    console.log(this.searchList);
+  }
 
+  wordChanged(e) {
+    this.searchString = e.target.value;
+    this.searchList = this.searchThis(this.searchList, this.searchString);
+    console.log(this.searchList);
+    console.log(this.searchString);
+  }
+
+  getData() {
+    const address = new URL("../assets/search-data.json", import.meta.url).href;
+    fetch(address)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return [];
+      })
+      .then((data) => {
+        this.searchList = data;
+      });
   }
 }
 

@@ -19,6 +19,7 @@ class collapseList extends LitElement {
     this.search = "";
     this.searchList = [];
     this.getData();
+
   }
 
   render() {
@@ -45,8 +46,6 @@ class collapseList extends LitElement {
       </div>
     `;
   }
-  
-    
 
   getData() {
     const address = new URL("../assets/search-data.json", import.meta.url).href;
