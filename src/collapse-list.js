@@ -24,7 +24,7 @@ class collapseList extends LitElement {
 
   render() {
     return html`
-      <search-bar @value-changed="${this._handleSearchEvent}"></search-bar>
+      <search-bar @value-changed="${this._handleSearch}"></search-bar>
       <div class="wrapper">
         ${this.searchList.map(
           (collapse) => html`
