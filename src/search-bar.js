@@ -33,8 +33,8 @@ class searchBar extends LitElement {
       }
       input {
         font-size: 20px;
-        font-weight: bold;
         border: none;
+        font-family: "Roboto", "Noto", sans-serif;
       }
       input:focus {
         outline: 1px solid grey;
