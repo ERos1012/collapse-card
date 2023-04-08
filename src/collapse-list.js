@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import "../src/search-bar.js";
+import "../src/collapse-card.js";
 
 class collapseList extends LitElement {
   static properties = {
