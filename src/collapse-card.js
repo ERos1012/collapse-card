@@ -66,11 +66,8 @@ class CollapseCard extends LitElement {
      content: "-";
      }
      */
-    *,
-    *:before,
-    *:after {
-      box-sizing: inherit;
-    }
+     *,
+
 
     $details-padding: 1em;
 
@@ -109,27 +106,42 @@ class CollapseCard extends LitElement {
           outline: none;
         }
 
-        &:hover .summary-chevron-up svg {
-          opacity: 1;
-        }
-      }
+		&:hover .summary-chevron-up svg {
+			opacity: 1;
+		}
+	}
+  *:before,
+   *::after {
 
-      .summary-chevron-up svg {
-        opacity: 0.5;
-      }
+	box-sizing: inherit;
+}
 
-      .summary-chevron-up,
-      .summary-chevron-down {
-        pointer-events: none;
-        position: absolute;
-        top: 0.75em;
-        right: $details-padding;
-        background: #ffffff;
+	.summary-chevron-up svg {
+    position: absolute;
+    left: 0px;
+		opacity: 0.5;
+	}
 
-        .svg {
-          display: block;
-        }
-      }
+	.summary-chevron-up,
+	.summary-chevron-down {
+		pointer-events: none;
+		position: absolute;
+    left: 0;
+    right: 0;
+		top: 0.75em;
+		right: $details-padding;
+		background: #ffffff;
+    transform: translate(-50%, -50%);
+  }
+		.svg {
+			display: block;
+		}
+	
+
+	.summary::-webkit-details-marker {
+		display: none;
+	}
+}
 
       .summary::-webkit-details-marker {
         display: none;
@@ -153,8 +165,8 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-      <!--
-      <div class="wrapper">
+    <!--
+ 
         <div class="image">
           <img src="${this.badgeImage}" alt="Badge Image" />
         <simple-icon accent-color="green" icon="file-download"> </simple-icon>
@@ -167,53 +179,37 @@ class CollapseCard extends LitElement {
       </summary>
         </div>
   -->
-      <details>
-        <summary>
-          <span class="summary-title"> ${this.badgeHeader}</span>
-          <div class="summary-chev-up">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="feather feather-chevron-down"
-            >
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </div>
-        </summary>
 
-        <div class="sum-con">
-          <h3>${this.badgeName}</h3>
-          <p>${this.badgeDescription}</p>
-          <p>${this.badgeCreator}</p>
-          <p>${this.timeToComplete}</p>
-          <p>${this.stepsName}</p>
-          <p>${this.stepsDescription}</p>
-          <p>${this.stepsTime}</p>
-        </div>
-        <div class="summary-chev-down">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-chevron-up"
-          >
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </div>
-      </details>
+  <div class="wrapper">
+          <details>
+            <summary>
+          <span class ="summary-title">
+          ${this.badgeHeader}</span>
+<div class ="summary-chev-up">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+  <polyline points="6 9 12 15 18 9"></polyline></svg>
+         </div>
+</summary>
+
+          <div class= "sum-con">
+          
+            <h3>${this.badgeName}</h3>
+            <p>${this.badgeDescription}</p>
+            <p>${this.badgeCreator}</p>
+            <p>${this.timeToComplete}</p>
+            <p>${this.stepsName}</p>
+            <p>${this.stepsDescription}</p>
+            <p>${this.stepsTime}</p>
+            </div>
+            <div class="summary-chev-down">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15">
+    </polyline></svg>
+            </div>
+          </details>
+          </div>
+        
+        
+    
     `;
   }
 }

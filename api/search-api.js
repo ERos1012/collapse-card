@@ -74,3 +74,5 @@ export default async function handler(request, res) {
   );
   res.json(badges);
 }
+
+ 
