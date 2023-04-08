@@ -63,7 +63,7 @@ class collapseList extends LitElement {
       return results;
   }
 
-  async _handleSearch(e) {
+  async _handleSearchEvent(e) {
     const term = e.detail.value;
     this.players = await this.getSearchResults(term);
     console.log(this.searchList);
