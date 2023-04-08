@@ -24,7 +24,7 @@ class searchBar extends LitElement {
 
   constructor() {
     super();
-    this.value = 'Default Value';
+    this.value = '';
   }
 
   render() {
