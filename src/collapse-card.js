@@ -19,6 +19,8 @@ class CollapseCard extends LitElement {
 
   static styles = css`
     .wrapper {
+      border-left: solid:
+      border-left-color: dark blue;
       background-color: lightblue;
       border: 1px solid black;
       display: flex;
@@ -146,7 +148,7 @@ class CollapseCard extends LitElement {
       .summary::-webkit-details-marker {
         display: none;
       }
-    }
+    
   `;
 
   constructor() {
