@@ -1,21 +1,20 @@
 import { LitElement, html, css } from "lit";
-import "@lrnwebcomponents/simple-icon/simple-icon.js";
-import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+// import "@lrnwebcomponents/simple-icon/simple-icon.js";
+// import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
-
 
 class CollapseCard extends LitElement {
   static properties = {
-    badgeHeader: { type: String},
-    badgeName: { type: String},
-    badgeUrl: { type: String},
-    badgeDescription: { type: String},
-    badgeImage: { type: String},
+    badgeHeader: { type: String },
+    badgeName: { type: String },
+    badgeUrl: { type: String },
+    badgeDescription: { type: String },
+    badgeImage: { type: String },
     badgeCreator: { type: String },
-    timeToComplete: { type: String},
-    stepsName: { type: String},
-    stepsDescription: { type: String},
-    stepsTime: { type: String},
+    timeToComplete: { type: String },
+    stepsName: { type: String },
+    stepsDescription: { type: String },
+    stepsTime: { type: String },
   };
 
   static styles = css`
@@ -35,7 +34,7 @@ class CollapseCard extends LitElement {
       flex-direction: column;
       align-items: left;
     }
-   /* .badgeNamecss{
+    /* .badgeNamecss{
       font-size: 10px;
       color: black;
     }
@@ -70,42 +69,42 @@ class CollapseCard extends LitElement {
      *,
 
 
-$details-padding: 1em;
+    $details-padding: 1em;
 
-.details {
-	font-size: 1rem;
-	margin: 7em auto;
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-		0 10px 10px -5px rgba(0, 0, 0, 0.04);
-	width: 100%;
-	background: #ffffff;
-	border-radius: 8px;
-	position: relative;
-	width: 500px;
+    .details {
+      font-size: 1rem;
+      margin: 7em auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      background: #ffffff;
+      border-radius: 8px;
+      position: relative;
+      width: 500px;
 
-	.summary-title {
-		user-select: none;
-	}
+      .summary-title {
+        user-select: none;
+      }
 
-	&:hover {
-		cursor: pointer;
-	}
+      &:hover {
+        cursor: pointer;
+      }
 
-	.summary-content {
-		border-top: 1px solid #e2e8f0;
-		cursor: default;
-		padding: $details-padding;
-		font-weight: 300;
-		line-height: 1.5;
-	}
+      .summary-content {
+        border-top: 1px solid #e2e8f0;
+        cursor: default;
+        padding: $details-padding;
+        font-weight: 300;
+        line-height: 1.5;
+      }
 
-	.summary {
-		list-style: none;
-		padding: $details-padding;
+      .summary {
+        list-style: none;
+        padding: $details-padding;
 
-		&:focus {
-			outline: none;
-		}
+        &:focus {
+          outline: none;
+        }
 
 		&:hover .summary-chevron-up svg {
 			opacity: 1;
@@ -144,6 +143,10 @@ $details-padding: 1em;
 	}
 }
 
+      .summary::-webkit-details-marker {
+        display: none;
+      }
+    }
   `;
 
   constructor() {
@@ -165,7 +168,7 @@ $details-padding: 1em;
     <!--
  
         <div class="image">
-        <img src="${this.badgeImage}" alt="Badge Image" /> 
+          <img src="${this.badgeImage}" alt="Badge Image" />
         <simple-icon accent-color="green" icon="file-download"> </simple-icon>
 
         </div>
