@@ -50,7 +50,7 @@ class collapseList extends LitElement {
   }
 
   async getSearchResults(value = "") {
-    const address = `/api/roster?search=${value}`;
+    const address = `/api/search-data?=${value}`;
     const results = await fetch(address)
       .then((response) => {
         if (response.ok) {
