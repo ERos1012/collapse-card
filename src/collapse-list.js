@@ -17,8 +17,8 @@ class collapseList extends LitElement {
     super();
     this.search = "";
     this.searchList = [];
-    this.getSearchResults().then((results) => {
-      this.players = results;
+    this.getSearchedData().then((data) => {
+      this.searchList = data;
     });
   }
 
@@ -48,8 +48,8 @@ class collapseList extends LitElement {
     `;
   }
 
-  async getSearchResults(value = "") {
-    const address = `/api/search-api?search=${value}`;
+  async getSearchedData(search = "") {
+    const address = `/api/search-api?search=${search}`;
     const results = await fetch(address)
       .then((response) => {
         if (response.ok) {
@@ -63,10 +63,8 @@ class collapseList extends LitElement {
       return results;
   }
 
-  async _handleSearchEvent(e) {
-    const term = e.detail.value;
-    this.players = await this.getSearchResults(term);
-    console.log(this.searchList);
+  async _handleSearch(e) {
+    this.searchList = await this.getSearchedData(e.detail.value);
   }
 }
 
