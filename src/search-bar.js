@@ -1,9 +1,11 @@
 import { LitElement, html, css } from "lit";
+//import '@lrnwebcomponents/simple-icon/simple-icon.js';
+//import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class searchBar extends LitElement {
   static properties = {
     searchString: { type: String },
-    searchList: { type: Array },
+    searchList: { reflect: true, type: Array },
   };
 
   static styles = css`
@@ -34,6 +36,11 @@ class searchBar extends LitElement {
       width: 100%;
       max-width: 500px;
     }
+    /* .simple-icon {
+      display: inline-block;
+      --simple-icon-height: 20px;
+      --simple-icon-width: 20px;
+    } */
   `;
 
   constructor() {
@@ -47,6 +54,7 @@ class searchBar extends LitElement {
   render() {
     return html`
       <div class="wrapper">
+        <!-- <simple-icon icon="search"></simple-icon> -->
         <input
           type="text"
           accent-color="black"
@@ -72,9 +80,9 @@ class searchBar extends LitElement {
 
   wordChanged(e) {
     this.searchString = e.target.value;
-    this.searchList = this.searchThis(this.searchList, this.searchString);
-    console.log(this.searchList);
-    console.log(this.searchString);
+    this.dispatchEvent(
+      new CustomEvent("searchString", { detail: this.searchString })
+    );
   }
 
   getData() {

@@ -1,6 +1,5 @@
 import { LitElement, html, css } from "lit";
-const searchBar = document.getElementById("searchbar");
-
+import "../src/search-bar.js";
 
 class collapseList extends LitElement {
   static properties = {
@@ -18,17 +17,19 @@ class collapseList extends LitElement {
     super();
     this.search = "";
     this.searchList = [];
-    this.getData();
-
+    this.getSearchedData().then((data) => {
+      this.searchList = data;
+    });
   }
 
   render() {
     return html`
+      <search-bar @value-changed="${this._handleSearchEvent}"></search-bar>
       <div class="wrapper">
         ${this.searchList.map(
           (collapse) => html`
             <div class="item">
-            <collapse-card
+              <collapse-card
                 badgeHeader="${collapse.badgeHeader}"
                 badgeName="${collapse.badgeName}"
                 badgeUrl="${collapse.badgeUrl}"
@@ -47,9 +48,9 @@ class collapseList extends LitElement {
     `;
   }
 
-  getData() {
-    const address = new URL("../assets/search-data.json", import.meta.url).href;
-    fetch(address)
+  async getSearchedData(search = "") {
+    const address = `/api/search-api?search=${search}`;
+    const results = await fetch(address)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -57,8 +58,13 @@ class collapseList extends LitElement {
         return [];
       })
       .then((data) => {
-        this.searchList = data;
+        return data;
       });
+      return results;
+  }
+
+  async _handleSearch(e) {
+    this.searchList = await this.getSearchedData(e.detail.value);
   }
 }
 

@@ -24,44 +24,13 @@
   <body>
     <search-bar></search-bar>
     <collapse-list></collapse-list>
+    <search-function></search-function>
 
     <script type="module">
       import "./src/search-bar.js";
       import "./src/collapse-card.js";
       import "./src/collapse-list.js";
     </script>
-    <script>
-      document.querySelector('search-bar').addEventListener('input-changed', (e) => {  
-        const address = '../api/search-api';
-        if (document.querySelector("search-bar").filteredInputs.length === 0){
-          fetch(address).then((response) => {
-              if(response.ok){
-                  return response.json();
-              }
-              return [];
-          })
-          .then((data) => {
-              document.querySelector("collapse-list").badges = data;
-          });
-        }
-        else{
-          fetch(address).then((response) => {
-            if(response.ok){
-                return response.json();
-            }
-            return [];
-          })
-          .then((data) => {
-            document.querySelector("collapse-list").badges = data.filter(item => {
-              return document.querySelector("search-bar").filteredInputs.some(input => {
-                return item.title.toLowerCase().includes(input);
-              }) || document.querySelector("search-bar").filteredInputs.some(input => {
-                return item.author.toLowerCase().includes(input);
-              })
-            })
-          });
-        }
-      })
-    </script>
+    
   </body>
 </html>

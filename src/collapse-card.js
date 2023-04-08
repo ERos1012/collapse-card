@@ -1,21 +1,20 @@
 import { LitElement, html, css } from "lit";
-import "@lrnwebcomponents/simple-icon/simple-icon.js";
-import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+// import "@lrnwebcomponents/simple-icon/simple-icon.js";
+// import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
-
 
 class CollapseCard extends LitElement {
   static properties = {
-    badgeHeader: { type: String},
-    badgeName: { type: String},
-    badgeUrl: { type: String},
-    badgeDescription: { type: String},
-    badgeImage: { type: String},
+    badgeHeader: { type: String },
+    badgeName: { type: String },
+    badgeUrl: { type: String },
+    badgeDescription: { type: String },
+    badgeImage: { type: String },
     badgeCreator: { type: String },
-    timeToComplete: { type: String},
-    stepsName: { type: String},
-    stepsDescription: { type: String},
-    stepsTime: { type: String},
+    timeToComplete: { type: String },
+    stepsName: { type: String },
+    stepsDescription: { type: String },
+    stepsTime: { type: String },
   };
 
   static styles = css`
@@ -35,7 +34,7 @@ class CollapseCard extends LitElement {
       flex-direction: column;
       align-items: left;
     }
-   /* .badgeNamecss{
+    /* .badgeNamecss{
       font-size: 10px;
       color: black;
     }
@@ -67,76 +66,75 @@ class CollapseCard extends LitElement {
      content: "-";
      }
      */
-     *,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
 
-$details-padding: 1em;
+    $details-padding: 1em;
 
-.details {
-	font-size: 1rem;
-	margin: 7em auto;
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-		0 10px 10px -5px rgba(0, 0, 0, 0.04);
-	width: 100%;
-	background: #ffffff;
-	border-radius: 8px;
-	position: relative;
-	width: 500px;
+    .details {
+      font-size: 1rem;
+      margin: 7em auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      background: #ffffff;
+      border-radius: 8px;
+      position: relative;
+      width: 500px;
 
-	.summary-title {
-		user-select: none;
-	}
+      .summary-title {
+        user-select: none;
+      }
 
-	&:hover {
-		cursor: pointer;
-	}
+      &:hover {
+        cursor: pointer;
+      }
 
-	.summary-content {
-		border-top: 1px solid #e2e8f0;
-		cursor: default;
-		padding: $details-padding;
-		font-weight: 300;
-		line-height: 1.5;
-	}
+      .summary-content {
+        border-top: 1px solid #e2e8f0;
+        cursor: default;
+        padding: $details-padding;
+        font-weight: 300;
+        line-height: 1.5;
+      }
 
-	.summary {
-		list-style: none;
-		padding: $details-padding;
+      .summary {
+        list-style: none;
+        padding: $details-padding;
 
-		&:focus {
-			outline: none;
-		}
+        &:focus {
+          outline: none;
+        }
 
-		&:hover .summary-chevron-up svg {
-			opacity: 1;
-		}
-	}
+        &:hover .summary-chevron-up svg {
+          opacity: 1;
+        }
+      }
 
-	.summary-chevron-up svg {
-		opacity: 0.5;
-	}
+      .summary-chevron-up svg {
+        opacity: 0.5;
+      }
 
-	.summary-chevron-up,
-	.summary-chevron-down {
-		pointer-events: none;
-		position: absolute;
-		top: 0.75em;
-		right: $details-padding;
-		background: #ffffff;
+      .summary-chevron-up,
+      .summary-chevron-down {
+        pointer-events: none;
+        position: absolute;
+        top: 0.75em;
+        right: $details-padding;
+        background: #ffffff;
 
-		.svg {
-			display: block;
-		}
-	}
+        .svg {
+          display: block;
+        }
+      }
 
-	.summary::-webkit-details-marker {
-		display: none;
-	}
-}
-
+      .summary::-webkit-details-marker {
+        display: none;
+      }
+    }
   `;
 
   constructor() {
@@ -155,10 +153,10 @@ $details-padding: 1em;
 
   render() {
     return html`
-    <!--
- <div class="wrapper">
+      <!--
+      <div class="wrapper">
         <div class="image">
-        <img src="${this.badgeImage}" alt="Badge Image" /> 
+          <img src="${this.badgeImage}" alt="Badge Image" />
         <simple-icon accent-color="green" icon="file-download"> </simple-icon>
 
         </div>
@@ -169,34 +167,53 @@ $details-padding: 1em;
       </summary>
         </div>
   -->
-          <details>
-            <summary>
-          <span class ="summary-title">
-          ${this.badgeHeader}</span>
-<div class ="summary-chev-up">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-  <polyline points="6 9 12 15 18 9"></polyline></svg>
-         </div>
-</summary>
+      <details>
+        <summary>
+          <span class="summary-title"> ${this.badgeHeader}</span>
+          <div class="summary-chev-up">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-chevron-down"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </summary>
 
-          <div class= "sum-con">
-          
-            <h3>${this.badgeName}</h3>
-            <p>${this.badgeDescription}</p>
-            <p>${this.badgeCreator}</p>
-            <p>${this.timeToComplete}</p>
-            <p>${this.stepsName}</p>
-            <p>${this.stepsDescription}</p>
-            <p>${this.stepsTime}</p>
-            </div>
-            <div class="summary-chev-down">
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15">
-    </polyline></svg>
-            </div>
-          </details>
-        
-        
-    
+        <div class="sum-con">
+          <h3>${this.badgeName}</h3>
+          <p>${this.badgeDescription}</p>
+          <p>${this.badgeCreator}</p>
+          <p>${this.timeToComplete}</p>
+          <p>${this.stepsName}</p>
+          <p>${this.stepsDescription}</p>
+          <p>${this.stepsTime}</p>
+        </div>
+        <div class="summary-chev-down">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevron-up"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </div>
+      </details>
     `;
   }
 }
