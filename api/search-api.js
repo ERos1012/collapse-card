@@ -56,6 +56,10 @@ export default async function handler(request, res) {
       badge.timeToComplete.toLowerCase();
   });
 
+  badges = badges.filter((badge) => {
+    return badge.index.indexOf(search.toLowerCase()) > -1;
+  });
+
   res.setHeader("Cache-Control", "max-age=0, s-maxage=1800");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "*");

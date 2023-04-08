@@ -1,102 +1,46 @@
 import { LitElement, html, css } from "lit";
-//import '@lrnwebcomponents/simple-icon/simple-icon.js';
-//import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+import '@lrnwebcomponents/simple-icon/simple-icon.js';
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class searchBar extends LitElement {
-  static properties = {
-    searchString: { type: String },
-    searchList: { reflect: true, type: Array },
-  };
+  static get properties() {
+    return {
+      value: { type: String },
+    }
+  }
 
-  static styles = css`
+  static get styles() {
+    return css`
     :host {
       display: block;
-      padding: 30px;
     }
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .item {
-      display: inline-flex;
-    }
-    input {
-      font-size: 20px;
-      font-weight: bold;
-      border: none;
-    }
-    input:focus {
-      outline: 1px solid grey;
-    }
-    input:hover:not(:focus) {
-      border-bottom: 2px solid grey;
-    }
-    #searchbar {
-      width: 100%;
-      max-width: 500px;
-    }
-    /* .simple-icon {
+    simple-icon {
       display: inline-block;
-      --simple-icon-height: 20px;
-      --simple-icon-width: 20px;
-    } */
-  `;
+      --simple-icon-height: 40px;
+      --simple-icon-width: 40px;
+    }
+    `;
+  }
 
   constructor() {
     super();
-    this.searchString = "";
-    this.searchList = [];
-    this.getData();
-    this.searchThis(this.searchList, this.searchString);
+    this.value = 'Default Value';
   }
 
   render() {
     return html`
-      <div class="wrapper">
-        <!-- <simple-icon icon="search"></simple-icon> -->
-        <input
-          type="text"
-          accent-color="black"
-          id="searchbar"
-          placeholder="Search Content, Topics, and People"
-          @input="${this.wordChanged}"
-        />
-      </div>
+      <simple-icon icon="icons:search"></simple-icon>
+      <input type="text" value="${this.value}" @input="${this._handleInput}" />
     `;
   }
-
-  searchThis(searchList, searchString) {
-    const words = searchString.split(/\s+/);
-    return searchList.filter((element) => {
-      for (const word of words) {
-        if (!element.badgeHeader.toLowerCase().includes(word.toLowerCase())) {
-          return false;
-        }
+  _handleInput(e) {
+    this.value = e.target.value;
+    this.dispatchEvent(new CustomEvent('value-changed', {
+      detail: {
+        value: this.value,
       }
-      return true;
-    });
-  }
-
-  wordChanged(e) {
-    this.searchString = e.target.value;
-    this.dispatchEvent(
-      new CustomEvent("searchString", { detail: this.searchString })
-    );
-  }
-
-  getData() {
-    const address = new URL("../assets/search-data.json", import.meta.url).href;
-    fetch(address)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        return [];
-      })
-      .then((data) => {
-        this.searchList = data;
-      });
+    }));
+    console.log(this.value);
   }
 }
 
