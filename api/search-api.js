@@ -6,7 +6,7 @@ export default async function handler(request, res) {
         badgeName: "Badge Name",
         badgeUrl: "Badge Url",
         badgeDescription: "Badge Description",
-        badgeImage: "Badge Image",
+        badgeImage: "Badge Name",
         badgeCreator: "Badge Creator",
         timeToComplete: "Time To Complete",
         stepsName: "Steps Name",

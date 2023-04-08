@@ -68,10 +68,7 @@ class CollapseCard extends LitElement {
      }
      */
      *,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
+
 
 $details-padding: 1em;
 
@@ -114,8 +111,15 @@ $details-padding: 1em;
 			opacity: 1;
 		}
 	}
+  *:before,
+   *::after {
+
+	box-sizing: inherit;
+}
 
 	.summary-chevron-up svg {
+    position: absolute;
+    left: 0px;
 		opacity: 0.5;
 	}
 
@@ -123,14 +127,17 @@ $details-padding: 1em;
 	.summary-chevron-down {
 		pointer-events: none;
 		position: absolute;
+    left: 0;
+    right: 0;
 		top: 0.75em;
 		right: $details-padding;
 		background: #ffffff;
-
+    transform: translate(-50%, -50%);
+  }
 		.svg {
 			display: block;
 		}
-	}
+	
 
 	.summary::-webkit-details-marker {
 		display: none;
@@ -156,7 +163,7 @@ $details-padding: 1em;
   render() {
     return html`
     <!--
- <div class="wrapper">
+ 
         <div class="image">
         <img src="${this.badgeImage}" alt="Badge Image" /> 
         <simple-icon accent-color="green" icon="file-download"> </simple-icon>
@@ -169,6 +176,8 @@ $details-padding: 1em;
       </summary>
         </div>
   -->
+
+  <div class="wrapper">
           <details>
             <summary>
           <span class ="summary-title">
@@ -194,6 +203,7 @@ $details-padding: 1em;
     </polyline></svg>
             </div>
           </details>
+          </div>
         
         
     
