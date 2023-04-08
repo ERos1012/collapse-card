@@ -1,5 +1,6 @@
 export default async function handler(request, res) {
   const search = request.query.search || "";
+  
   var badges = [
     {
       badgeHeader: "Badge Header",
