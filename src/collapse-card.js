@@ -22,7 +22,6 @@ class CollapseCard extends LitElement {
     .wrapper {
       border-left: solid:
       border-left-color: dark blue;
-      background-color: lightblue;
       border: 1px solid black;
       display: flex;
       align-items: center;
@@ -71,7 +70,20 @@ class CollapseCard extends LitElement {
 
     $details-padding: 1em;
 
-    .details {
+  .badgeName{
+      background-color: light blue;
+    }
+  .badgeDescription{
+     background-color: #ffffff;
+    }
+  .badgeUrl{
+    font-color: blue;
+   }
+  .badgeHeader{
+    background-color: light blue; 
+   }
+
+  .details {
       font-size: 1rem;
       margin: 7em auto;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -154,13 +166,8 @@ class CollapseCard extends LitElement {
   .summary::-webkit-details-marker {
         display: none;
       }
-    .badgeName{
-      font-color: green;
-    }
-    .backGroundColor{
-      background-color: light blue;
-      border-color: dark blue;
-    }
+  
+    
     
   `;
 
@@ -197,7 +204,6 @@ class CollapseCard extends LitElement {
   -->
   
   <div class="wrapper">
-    <div class = "backGroundColor">
           <details>
             <summary>
           <span class ="summary-title">
@@ -211,7 +217,7 @@ class CollapseCard extends LitElement {
           <div class= "sum-con">
           
             <h3>${this.badgeName}</h3>
-            </div>
+            
             
             <p>${this.badgeDescription}</p>
             <p>${this.badgeCreator}</p>
