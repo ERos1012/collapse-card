@@ -37,10 +37,12 @@ class collapseList extends LitElement {
                 badgeImage="${collapse.badgeImage}"
                 badgeCreator="${collapse.badgeCreator}"
                 timeToComplete="${collapse.timeToComplete}"
+                timeToComplete2 ="${collapse.timeToComplete2}"
                 stepsName="${collapse.stepsName}"
                 stepsDescription="${collapse.stepsDescription}"
                 stepsTime="${collapse.stepsTime}"
                 step1= "${collapse.step1}"
+                step2 ="${collapse.step2}"
               ></collapse-card>
             </div>
           `

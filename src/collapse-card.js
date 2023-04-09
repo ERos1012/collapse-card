@@ -13,11 +13,13 @@ class CollapseCard extends LitElement {
     badgeImage: { type: String },
     badgeCreator: { type: String },
     timeToComplete: { type: String },
+    timeToComplete2: { type: String },
     stepsName: { type: String },
     stepsDescription: { type: String },
     stepsTime: { type: String },
     open: { type: Boolean },
-    step1: {type: String}
+    step1: {type: String},
+    step2: {type: String}
 
   };
 
@@ -109,8 +111,8 @@ class CollapseCard extends LitElement {
            </div>
            <div class="badge-details phoneAndTime">
             <simple-icon accent-color="white" icon="av:featured-play-list"></simple-icon>
-            <p>${this.step1}</p>
-           <p class="time-to-complete">${this.timeToComplete}</p>
+            <p>${this.step2}</p>
+           <p class="time-to-complete">${this.timeToComplete2}</p>
            </div>
           </slot>
         </div>
