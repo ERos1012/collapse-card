@@ -21,6 +21,7 @@ class CollapseCard extends LitElement {
   static styles = css`
     .wrapper {
       border-left: solid:
+      background-color: light blue;
       border-left-color: dark blue;
       border: 1px solid black;
       display: flex;
