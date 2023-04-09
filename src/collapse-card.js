@@ -57,13 +57,19 @@ class CollapseCard extends LitElement {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #d3d3d3;
+  border: solid;
+  border-width: thin;
+  border-color: #a5a5a5;
 }
 .phoneAndTime simple-icon {
   margin-right: 5px;
+  background-color:#d3d3d3;
 }
 .arrowCard {
   margin: 20px;
 }
+
 `;
 
   constructor() {
@@ -97,7 +103,12 @@ class CollapseCard extends LitElement {
             <p>${this.badgeCreator}</p>
             <h4> Steps to earn this badge </h4>
             <div class="badge-details phoneAndTime">
-            <simple-icon accent-color="teal" icon="communication:stay-current-portrait"></simple-icon>
+            <simple-icon accent-color="white" icon="av:play-circle-filled"></simple-icon>
+            <p>${this.step1}</p>
+           <p class="time-to-complete">${this.timeToComplete}</p>
+           </div>
+           <div class="badge-details phoneAndTime">
+            <simple-icon accent-color="white" icon="av:featured-play-list"></simple-icon>
             <p>${this.step1}</p>
            <p class="time-to-complete">${this.timeToComplete}</p>
            </div>
