@@ -40,6 +40,7 @@ class collapseList extends LitElement {
                 stepsName="${collapse.stepsName}"
                 stepsDescription="${collapse.stepsDescription}"
                 stepsTime="${collapse.stepsTime}"
+                step1= "${collapse.step1}"
               ></collapse-card>
             </div>
           `

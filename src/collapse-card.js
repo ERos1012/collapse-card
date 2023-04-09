@@ -17,6 +17,8 @@ class CollapseCard extends LitElement {
     stepsDescription: { type: String },
     stepsTime: { type: String },
     open: { type: Boolean },
+    step1: {type: String}
+
   };
 
   static styles = css`
@@ -77,6 +79,7 @@ class CollapseCard extends LitElement {
     this.stepsName = "Steps Name";
     this.stepsDescription = "Steps Description";
     this.stepsTime = "0";
+    this.step1= "Step 1";
     this.open = false;
   }
 
@@ -89,17 +92,15 @@ class CollapseCard extends LitElement {
         </div>
         <div class="card-content">
           <slot>
-            <h3>${this.badgeName}</h3>
+            
             <p>${this.badgeDescription}</p>
-            <div class="badge-details phoneAndTime">
-              <simple-icon
-                accent-color="teal"
-                icon="communication:stay-current-portrait"
-              ></simple-icon>
-              <span>completed in</span>
-              <p class="time-to-complete">${this.timeToComplete}</p>
-            </div>
             <p>${this.badgeCreator}</p>
+            <h4> Steps to earn this badge </h4>
+            <div class="badge-details phoneAndTime">
+            <simple-icon accent-color="teal" icon="communication:stay-current-portrait"></simple-icon>
+            <p>${this.step1}</p>
+           <p class="time-to-complete">${this.timeToComplete}</p>
+           </div>
           </slot>
         </div>
       </div>
