@@ -1,6 +1,6 @@
 export default async function handler(request, res) {
   const search = request.query.search || "";
-  
+  {this.badgesCount};
   var badges = [
     {
       badgeHeader: "Badge Header",

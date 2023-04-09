@@ -5,6 +5,7 @@ const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
 class CollapseCard extends LitElement {
   static properties = {
+    badgesCount: {type: String},
     badgeHeader: { type: String },
     badgeName: { type: String },
     badgeUrl: { type: String },
@@ -40,10 +41,7 @@ class CollapseCard extends LitElement {
       font-size: 10px;
       color: black;
     }
-    .backGroundColor{
-      background-color: light blue;
-      border-color: dark blue;
-    }
+    
     .righttrial{
       position: absolute;
       right: 0;
@@ -68,7 +66,7 @@ class CollapseCard extends LitElement {
      content: "-";
      }
      */
-     *,
+     
 
 
     $details-padding: 1em;
@@ -83,7 +81,7 @@ class CollapseCard extends LitElement {
       border-radius: 8px;
       position: relative;
       width: 500px;
-
+    }
       .summary-title {
         user-select: none;
       }
@@ -104,7 +102,7 @@ class CollapseCard extends LitElement {
         list-style: none;
         padding: $details-padding;
 
-        &:focus {
+       &:focus {
           outline: none;
         }
 
@@ -135,6 +133,14 @@ class CollapseCard extends LitElement {
 		background: #ffffff;
     transform: translate(-50%, -50%);
   }
+  summary::after {
+  content: '\25B6'; /* Unicode character for right-pointing triangle */
+  float: right;
+  margin-top: 3px;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
 		.svg {
 			display: block;
 		}
@@ -143,16 +149,24 @@ class CollapseCard extends LitElement {
 	.summary::-webkit-details-marker {
 		display: none;
 	}
-}
 
-      .summary::-webkit-details-marker {
+
+  .summary::-webkit-details-marker {
         display: none;
       }
+    .badgeName{
+      font-color: green;
+    }
+    .backGroundColor{
+      background-color: light blue;
+      border-color: dark blue;
+    }
     
   `;
 
   constructor() {
     super();
+    this.badgesCount= "Badge Count";
     this.badgeHeader = "Badge Header";
     this.badgeName = "Badge Name";
     this.badgeUrl = "Badge Url";
@@ -181,8 +195,9 @@ class CollapseCard extends LitElement {
       </summary>
         </div>
   -->
-
+  
   <div class="wrapper">
+    <div class = "backGroundColor">
           <details>
             <summary>
           <span class ="summary-title">
@@ -191,11 +206,13 @@ class CollapseCard extends LitElement {
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
   <polyline points="6 9 12 15 18 9"></polyline></svg>
          </div>
-</summary>
+      </summary>
 
           <div class= "sum-con">
           
             <h3>${this.badgeName}</h3>
+            </div>
+            
             <p>${this.badgeDescription}</p>
             <p>${this.badgeCreator}</p>
             <p>${this.timeToComplete}</p>
