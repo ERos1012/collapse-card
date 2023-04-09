@@ -37,7 +37,7 @@ class CollapseCard extends LitElement {
       flex-direction: column;
       align-items: left;
     }
-    /* .badgeNamecss{
+    .badgeNamecss{
       font-size: 10px;
       color: black;
     }
@@ -56,31 +56,8 @@ class CollapseCard extends LitElement {
     .summary::-webkit-details-marker {
     display: none
      }
-    .summary:after {
-    content: "+";
-     color: #fff;
-    float: left;
-     }
-
-    .details[open] summary:after {
-     content: "-";
-     }
-     */
      
 
-
-
-  .badgeDescription{
-     background-color: #ffffff;
-     font-color: red;
-  }
-  .badgeUrl{
-    font-color: blue;
-  }
-  .badgeHeader{
-    font-size: 48px;
-    background-color: light blue; 
-  }
 
   .details {
       font-size: 1rem;
@@ -93,50 +70,17 @@ class CollapseCard extends LitElement {
       position: relative;
       width: 500px;
     }
-    .summary-title {
-        user-select: none;
-      }
+    
 
   
 
-	.summary-chevron-up svg {
-    position: absolute;
-    left: 0px;
-		opacity: 0.5;
-	}
-
-	.summary-chevron-up,
-	.summary-chevron-down {
-		pointer-events: none;
-		position: absolute;
-    left: 0;
-    right: 0;
-		top: 0.75em;
-		right: $details-padding;
-		background: #ffffff;
-    transform: translate(-50%, -50%);
-  }
-  summary::after {
-  content: '\25B6'; /* Unicode character for right-pointing triangle */
-  float: right;
-  margin-top: 3px;
-  margin-right: 10px;
-  font-size: 1.2em;
-}
-
-		.svg {
-			display: block;
-		}
+	
+  
 	
 
-	.summary::-webkit-details-marker {
-		display: none;
-	}
+	
 
-
-  .summary::-webkit-details-marker {
-        display: none;
-      }
+  
   
     
     
@@ -159,7 +103,7 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-  <div class="wrapper">
+  <div class="wrapper"> 
           <details>
             <summary>
           <span class ="summary-title">
@@ -177,6 +121,8 @@ class CollapseCard extends LitElement {
             
             <p>${this.badgeDescription}</p>
             <p>${this.badgeCreator}</p>
+            ${this.badgeImage}<simple-icon accent-color="teal" icon="communication:stay-current-portrait">
+             </simple-icon>
             <p>${this.timeToComplete}</p>
             <p>${this.stepsName}</p>
             <p>${this.stepsDescription}</p>
@@ -187,10 +133,10 @@ class CollapseCard extends LitElement {
     </polyline></svg>
             </div>
           </details>
-          </div>
+       
         
         
-  </div>
+
     `;
   }
 }
