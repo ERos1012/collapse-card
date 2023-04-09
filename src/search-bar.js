@@ -27,8 +27,7 @@ class searchBar extends LitElement {
         margin: 20px;
       }
       #searchbar {
-        width: 100%;
-        max-width: 500px;
+        min-width: 50vw;
         filter: drop-shadow(0px 2px 3px #383838);
       }
       input {
