@@ -69,20 +69,18 @@ class CollapseCard extends LitElement {
      
 
 
-    $details-padding: 1em;
 
-  .badgeName{
-      background-color: light blue;
-    }
   .badgeDescription{
      background-color: #ffffff;
-    }
+     font-color: red;
+  }
   .badgeUrl{
     font-color: blue;
-   }
+  }
   .badgeHeader{
+    font-size: 48px;
     background-color: light blue; 
-   }
+  }
 
   .details {
       font-size: 1rem;
@@ -90,44 +88,16 @@ class CollapseCard extends LitElement {
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
       width: 100%;
-      background: #ffffff;
+      background: light blue;
       border-radius: 8px;
       position: relative;
       width: 500px;
     }
-      .summary-title {
+    .summary-title {
         user-select: none;
       }
 
-      &:hover {
-        cursor: pointer;
-      }
-
-      .summary-content {
-        border-top: 1px solid #e2e8f0;
-        cursor: default;
-        padding: $details-padding;
-        font-weight: 300;
-        line-height: 1.5;
-      }
-
-      .summary {
-        list-style: none;
-        padding: $details-padding;
-
-       &:focus {
-          outline: none;
-        }
-
-		&:hover .summary-chevron-up svg {
-			opacity: 1;
-		}
-	}
-  *:before,
-   *::after {
-
-	box-sizing: inherit;
-}
+  
 
 	.summary-chevron-up svg {
     position: absolute;
@@ -189,30 +159,15 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-    <!--
- 
-        <div class="image">
-          <img src="${this.badgeImage}" alt="Badge Image" />
-        <simple-icon accent-color="green" icon="file-download"> </simple-icon>
-
-        </div>
-        <div class="item">
-          <div class = "badgeNamecss">
-       - <summary>
-          <h2>${this.badgeHeader}</h2>
-      </summary>
-        </div>
-  -->
-  
   <div class="wrapper">
           <details>
             <summary>
           <span class ="summary-title">
           ${this.badgeHeader}</span>
-<div class ="summary-chev-up">
+     <div class ="summary-chev-up">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
   <polyline points="6 9 12 15 18 9"></polyline></svg>
-         </div>
+       
       </summary>
 
           <div class= "sum-con">
@@ -235,7 +190,7 @@ class CollapseCard extends LitElement {
           </div>
         
         
-    
+  </div>
     `;
   }
 }
