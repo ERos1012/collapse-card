@@ -5,7 +5,7 @@ const imageURL = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
 class CollapseCard extends LitElement {
   static properties = {
-    badgesCount: {type: String},
+    badgesCount: { type: String },
     badgeHeader: { type: String },
     badgeName: { type: String },
     badgeUrl: { type: String },
@@ -19,66 +19,88 @@ class CollapseCard extends LitElement {
   };
 
   static styles = css`
-  .badgeDescription {
-    color: purple;
-  }
+    .sum-con {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+    }
 
-  .wrapper {
-    border-left: solid;
-    background-color: lightblue;
-    border-left-color: darkblue;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-  }
+    .badgeDesicription {
+      color: purple;
+    }
 
-  .image {
-    display: inline-flex;
-    width: 50px;
-    height: 50px;
-  }
+    .wrapper {
+      border-left: solid;
+      background-color: lightblue;
+      border-left-color: darkblue;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+    }
 
-  .item {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: left;
-  }
+    .image {
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+    }
 
-  .badgeNamecss {
-    font-size: 10px;
-    color: black;
-  }
+    .item {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: left;
+    }
 
-  .righttrial {
-    position: absolute;
-    right: 0;
-  }
+    .badgeNamecss {
+      font-size: 10px;
+      color: black;
+    }
 
-  .contentposition {
-    position: absolute;
-    left: 0;
-  }
+    .righttrial {
+      position: absolute;
+      right: 0;
+    }
 
-  .details {
-    display: none;
-    font-size: 1rem;
-    margin: 7em auto;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    width: 100%;
-    background: lightblue;
-    border-radius: 8px;
-    position: relative;
-  }
+    .contentposition {
+      position: absolute;
+      left: 0;
+    }
 
-  .summary::-webkit-details-marker {
-    display: none;
-  }
-`;
+    .details {
+      display: none;
+    }
+
+    .summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .details {
+      font-size: 1rem;
+      margin: 7em auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      background-color: lightblue;
+      background: white;
+      border-radius: 8px;
+      position: relative;
+      width: 500px;
+    }
+
+    .time-to-complete {
+      display: flex;
+      align-items: center;
+    }
+
+    .time-icon {
+      margin-right: 5px;
+    }
+  `;
 
   constructor() {
     super();
-    this.badgesCount= "Badge Count";
+    this.badgesCount = "Badge Count";
     this.badgeHeader = "Badge Header";
     this.badgeName = "Badge Name";
     this.badgeUrl = "Badge Url";
@@ -93,36 +115,32 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-  <div class="wrapper"> 
-          <details>
-            <summary>
-          <span class ="summary-title">
-          ${this.badgeHeader}</span>
-     <div class ="summary-chev-up">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-  <polyline points="6 9 12 15 18 9"></polyline></svg>
-       
-      </summary>
+  <div class="wrapper">
+  <details>
+    <summary>
+      <span class="summary-title">
+        ${this.badgeHeader}
+      </span>
+      <div class="summary-chev-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </summary>
+    <div class="sum-con">
+      <h3>${this.badgeName}</h3>
+      <p>${this.badgeDescription}</p>
+      <simple-icon accent-color="teal" icon="communication:stay-current-portrait"></simple-icon>
+      <p>${this.timeToComplete}</p>
+    </div>
+    <div class="summary-chev-down">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </div>
+  </details>
+</div>
 
-          <div class= "sum-con">
-          
-            <h3>${this.badgeName}</h3>
-            
-            
-            <p>${this.badgeDescription}</p>
-            <p>${this.badgeCreator}</p>
-            ${this.badgeImage}<simple-icon accent-color="teal" icon="communication:stay-current-portrait">
-             </simple-icon>
-            <p>${this.timeToComplete}</p>
-            <p>${this.stepsName}</p>
-            <p>${this.stepsDescription}</p>
-            <p>${this.stepsTime}</p>
-            </div>
-            <div class="summary-chev-down">
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15">
-    </polyline></svg>
-            </div>
-          </details>
        
         
         
