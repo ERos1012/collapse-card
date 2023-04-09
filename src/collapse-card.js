@@ -16,85 +16,46 @@ class CollapseCard extends LitElement {
     stepsName: { type: String },
     stepsDescription: { type: String },
     stepsTime: { type: String },
+    open: { type: Boolean },
   };
 
   static styles = css`
-    .sum-con {
+    .card {
+      border: 1px solid #ccc;
+      margin-left: 16px;
+      margin-right: 16px;
+      align-items: center;
+      border-left: solid;
+      background-color: lightblue;
+      border-left-color: darkblue;
+      border: 1px solid black;
+    }
+    .card-header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-content {
+      display: none;
+    }
+    .card.open .card-content {
+      display: block;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: white;
       padding: 10px;
     }
+    .badgeHeader {
+      margin: 20px;
+    }
 
     .badgeDesicription {
       color: purple;
     }
 
-    .wrapper {
-      border-left: solid;
-      background-color: lightblue;
-      border-left-color: darkblue;
-      border: 1px solid black;
-      display: flex;
-      align-items: center;
-    }
-
-    .image {
-      display: inline-flex;
-      width: 50px;
-      height: 50px;
-    }
-
-    .item {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: left;
-    }
-
-    .badgeNamecss {
-      font-size: 10px;
-      color: black;
-    }
-
-    .righttrial {
-      position: absolute;
-      right: 0;
-    }
-
-    .contentposition {
-      position: absolute;
-      left: 0;
-    }
-
-    .details {
-      display: none;
-    }
-
-    .summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .details {
-      font-size: 1rem;
-      margin: 7em auto;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      width: 100%;
-      background-color: lightblue;
-      background: white;
-      border-radius: 8px;
-      position: relative;
-      width: 500px;
-    }
-
-    .time-to-complete {
-      display: flex;
-      align-items: center;
-    }
-
-    .time-icon {
-      margin-right: 5px;
+    .arrowCard {
+      margin: 20px;
     }
   `;
 
@@ -111,41 +72,34 @@ class CollapseCard extends LitElement {
     this.stepsName = "Steps Name";
     this.stepsDescription = "Steps Description";
     this.stepsTime = "0";
+    this.open = false;
   }
 
   render() {
     return html`
-  <div class="wrapper">
-  <details>
-    <summary>
-      <span class="summary-title">
-        ${this.badgeHeader}
-      </span>
-      <div class="summary-chev-up">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+
+      <div class="card ${this.open ? "open" : ""}">
+        <div class="card-header" @click=${this.toggleOpen}>
+          <h2 class="badgeHeader">${this.badgeHeader}</h2>
+          <span class="arrowCard">${this.open ? "▲" : "▼"}</span>
+        </div>
+        <div class="card-content">
+          <slot>
+            <h3>${this.badgeName}</h3>
+            <p>${this.badgeDescription}</p>
+            <simple-icon
+              accent-color="teal"
+              icon="communication:stay-current-portrait"
+            ></simple-icon>
+            <p>${this.timeToComplete}</p>
+          </slot>
+        </div>
       </div>
-    </summary>
-    <div class="sum-con">
-      <h3>${this.badgeName}</h3>
-      <p>${this.badgeDescription}</p>
-      <simple-icon accent-color="teal" icon="communication:stay-current-portrait"></simple-icon>
-      <p>${this.timeToComplete}</p>
-    </div>
-    <div class="summary-chev-down">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    </div>
-  </details>
-</div>
-
-       
-        
-        
-
     `;
+  }
+
+  toggleOpen() {
+    this.open = !this.open;
   }
 }
 
