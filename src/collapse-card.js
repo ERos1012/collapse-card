@@ -21,43 +21,48 @@ class CollapseCard extends LitElement {
 
   static styles = css`
     .card {
-      border: 1px solid #ccc;
-      margin-left: 16px;
-      margin-right: 16px;
-      align-items: center;
-      border-left: solid;
-      background-color: lightblue;
-      border-left-color: darkblue;
-      border: 1px solid black;
-    }
-    .card-header {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-    }
-    .card-content {
-      display: none;
-    }
-    .card.open .card-content {
-      display: block;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      padding: 10px;
-    }
-    .badgeHeader {
-      margin: 20px;
-    }
-
-    .badgeDesicription {
-      color: purple;
-    }
-
-    .arrowCard {
-      margin: 20px;
-    }
-  `;
+  border: 1px solid #ccc;
+  margin-left: 16px;
+  margin-right: 16px;
+  align-items: center;
+  border-left: solid;
+  background-color: lightblue;
+  border-left-color: darkblue;
+  border: 1px solid black;
+}
+.card-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.card-content {
+  display: none;
+}
+.card.open .card-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+}
+.badgeHeader {
+  margin: 20px;
+}
+.badgeDescription {
+  color: purple;
+  margin: 10px 0;
+}
+.phoneAndTime {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phoneAndTime simple-icon {
+  margin-right: 5px;
+}
+.arrowCard {
+  margin: 20px;
+}
+`;
 
   constructor() {
     super();
@@ -77,7 +82,6 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-
       <div class="card ${this.open ? "open" : ""}">
         <div class="card-header" @click=${this.toggleOpen}>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>
@@ -87,16 +91,23 @@ class CollapseCard extends LitElement {
           <slot>
             <h3>${this.badgeName}</h3>
             <p>${this.badgeDescription}</p>
-            <simple-icon
-              accent-color="teal"
-              icon="communication:stay-current-portrait"
-            ></simple-icon>
-            <p>${this.timeToComplete}</p>
+            <div class="badge-details phoneAndTime">
+              <simple-icon
+                accent-color="teal"
+                icon="communication:stay-current-portrait"
+              ></simple-icon>
+              <span>completed in</span>
+              <p class="time-to-complete">${this.timeToComplete}</p>
+            </div>
+            <p>${this.badgeCreator}</p>
           </slot>
         </div>
       </div>
     `;
   }
+  
+  
+  
 
   toggleOpen() {
     this.open = !this.open;
