@@ -19,72 +19,62 @@ class CollapseCard extends LitElement {
   };
 
   static styles = css`
-    .wrapper {
-      border-left: solid:
-      background-color: light blue;
-      border-left-color: dark blue;
-      border: 1px solid black;
-      display: flex;
-      align-items: center;
-    }
-    .image {
-      display: inline-flex;
-      width: 50px;
-      height: 50px;
-    }
-    .item {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: left;
-    }
-    .badgeNamecss{
-      font-size: 10px;
-      color: black;
-    }
-    
-    .righttrial{
-      position: absolute;
-      right: 0;
-    }
-    .contentposition{
-      position: absolute;
-      left:0;
-    }
-    .details{
-      display:none;
-    }
-    .summary::-webkit-details-marker {
-    display: none
-     }
-     
+  .badgeDescription {
+    color: purple;
+  }
 
+  .wrapper {
+    border-left: solid;
+    background-color: lightblue;
+    border-left-color: darkblue;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+  }
+
+  .image {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+  }
+
+  .item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .badgeNamecss {
+    font-size: 10px;
+    color: black;
+  }
+
+  .righttrial {
+    position: absolute;
+    right: 0;
+  }
+
+  .contentposition {
+    position: absolute;
+    left: 0;
+  }
 
   .details {
-      font-size: 1rem;
-      margin: 7em auto;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      width: 100%;
-      background: light blue;
-      border-radius: 8px;
-      position: relative;
-      width: 500px;
-    }
-    
+    display: none;
+    font-size: 1rem;
+    margin: 7em auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    background: lightblue;
+    border-radius: 8px;
+    position: relative;
+  }
 
-  
-
-	
-  
-	
-
-	
-
-  
-  
-    
-    
-  `;
+  .summary::-webkit-details-marker {
+    display: none;
+  }
+`;
 
   constructor() {
     super();
