@@ -77,6 +77,7 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
+
       <div class="card ${this.open ? "open" : ""}">
         <div class="card-header" @click=${this.toggleOpen}>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>

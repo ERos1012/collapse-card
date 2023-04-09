@@ -51,6 +51,7 @@ class collapseList extends LitElement {
   async getSearchedData(search = "") {
     const address = `/api/search-api?search=${search}`;
     //const address = "../assets/search-data.json";
+
     const results = await fetch(address)
       .then((response) => {
         if (response.ok) {
