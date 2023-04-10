@@ -43,6 +43,7 @@ class collapseList extends LitElement {
                 stepsTime="${collapse.stepsTime}"
                 step1= "${collapse.step1}"
                 step2 ="${collapse.step2}"
+                aproxTime = "${collapse.aproxTime}"
               ></collapse-card>
             </div>
           `

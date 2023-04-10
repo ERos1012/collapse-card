@@ -53,7 +53,8 @@ export default async function handler(request, res) {
       stepsTime: "2.0 hours",
       step1: "Creating lamb",
       step2: "hello",
-      timeToComplete2: "3.0",
+      timeToComplete2: "3.0 hours",
+      aproxTime: "5.0 hours",
     },
     {
       badgeHeader: "Amazon S3 Phase 1",

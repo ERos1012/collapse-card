@@ -19,7 +19,8 @@ class CollapseCard extends LitElement {
     stepsTime: { type: String },
     open: { type: Boolean },
     step1: {type: String},
-    step2: {type: String}
+    step2: {type: String},
+    aproxTime: {type: String},
 
   };
 
@@ -71,6 +72,9 @@ class CollapseCard extends LitElement {
 .arrowCard {
   margin: 20px;
 }
+.step1{
+  margin-right: 15px;
+}
 
 `;
 
@@ -88,6 +92,7 @@ class CollapseCard extends LitElement {
     this.stepsDescription = "Steps Description";
     this.stepsTime = "0";
     this.step1= "Step 1";
+    this.aproxTime ="10";
     this.open = false;
   }
 
@@ -96,13 +101,18 @@ class CollapseCard extends LitElement {
       <div class="card ${this.open ? "open" : ""}">
         <div class="card-header" @click=${this.toggleOpen}>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>
+
           <span class="arrowCard">${this.open ? "▲" : "▼"}</span>
         </div>
         <div class="card-content">
           <slot>
             
             <p>${this.badgeDescription}</p>
-            <p>${this.badgeCreator}</p>
+
+            <p> ${"------------------------------------------"}</p>
+            <p>${"Badge Creator: "+ this.badgeCreator}</p>
+            <p>${"Approximate Time: "+ this.aproxTime}</p>
+
             <h4> Steps to earn this badge </h4>
             <div class="badge-details phoneAndTime">
             <simple-icon accent-color="white" icon="av:play-circle-filled"></simple-icon>
@@ -117,6 +127,7 @@ class CollapseCard extends LitElement {
           </slot>
         </div>
       </div>
+      <p>${"         "}</p>
     `;
   }
   
