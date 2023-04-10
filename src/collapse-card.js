@@ -56,6 +56,7 @@ class CollapseCard extends LitElement {
 .badgeHeader {
   margin: 0;
   flex-grow: 1; 
+  font: bold;
 }
 .badgeDescription {
   color: purple;
@@ -82,6 +83,9 @@ class CollapseCard extends LitElement {
 }
 .simple-icon {
   margin-right: 10px;
+}
+.stepDesign{
+  font-weight: bold;
 }
 
 
@@ -129,7 +133,7 @@ class CollapseCard extends LitElement {
             <p>${"Badge Creator: "+ this.badgeCreator}</p>
             <p>${"Approximate Time: "+ this.aproxTime}</p>
 
-            <h4> Steps to earn this badge </h4>
+            <div class= "stepDesign"> Steps to earn this badge </div>
             <div class="badge-details phoneAndTime">
             <simple-icon accent-color="white" icon="av:play-circle-filled"></simple-icon>
             <p>${this.step1}</p>
