@@ -26,14 +26,17 @@ class CollapseCard extends LitElement {
 
   static styles = css`
     .card {
-  border: 1px solid #ccc;
+  border width: 1px 1px 1px 15px;
+  border-style: solid;
+  border-color: rgb(62,152,211);
+  border radius: 5px;
+  width 1000px;
   margin-left: 16px;
   margin-right: 16px;
   align-items: center;
-  border-left: solid;
-  background-color: lightblue;
-  border-left-color: darkblue;
-  border: 1px solid black;
+  border-left: 15px solid #0082cb;
+  background-color: #e4f6f8;
+  
 }
 .card-header {
   cursor: pointer;
@@ -98,6 +101,7 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
+    
       <div class="card ${this.open ? "open" : ""}">
         <div class="card-header" @click=${this.toggleOpen}>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>
