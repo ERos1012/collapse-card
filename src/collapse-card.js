@@ -21,19 +21,19 @@ class CollapseCard extends LitElement {
     step1: {type: String},
     step2: {type: String},
     aproxTime: {type: String},
+    infoLink: {type: String},
 
   };
 
   static styles = css`
     .card {
-  border width: 1px 1px 1px 15px;
+  border width: 0.5px 0.5px 0.5px 10px;
   border-style: solid;
-  border-color: rgb(62,152,211);
+  border-color: #0082cb;
   border radius: 5px;
-  width 1000px;
   margin-left: 16px;
   margin-right: 16px;
-  align-items: center;
+  align-items: left;
   border-left: 15px solid #0082cb;
   background-color: #e4f6f8;
   
@@ -42,6 +42,7 @@ class CollapseCard extends LitElement {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
 .card-content {
   display: none;
@@ -53,7 +54,8 @@ class CollapseCard extends LitElement {
   padding: 10px;
 }
 .badgeHeader {
-  margin: 20px;
+  margin: 0;
+  flex-grow: 1; 
 }
 .badgeDescription {
   color: purple;
@@ -78,6 +80,13 @@ class CollapseCard extends LitElement {
 .step1{
   margin-right: 15px;
 }
+.simple-icon {
+  margin-right: 10px;
+}
+
+
+
+
 
 `;
 
@@ -96,6 +105,7 @@ class CollapseCard extends LitElement {
     this.stepsTime = "0";
     this.step1= "Step 1";
     this.aproxTime ="10";
+    this.infoLink= "info link";
     this.open = false;
   }
 
@@ -104,6 +114,7 @@ class CollapseCard extends LitElement {
     
       <div class="card ${this.open ? "open" : ""}">
         <div class="card-header" @click=${this.toggleOpen}>
+        <simple-icon accent-color="pink" icon="hardware:desktop-mac"></simple-icon>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>
 
           <span class="arrowCard">${this.open ? "▲" : "▼"}</span>
@@ -112,6 +123,7 @@ class CollapseCard extends LitElement {
           <slot>
             
             <p>${this.badgeDescription}</p>
+            <p>${"info link"}</p>
 
             <p> ${"------------------------------------------"}</p>
             <p>${"Badge Creator: "+ this.badgeCreator}</p>
