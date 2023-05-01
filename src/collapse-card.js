@@ -44,8 +44,14 @@ class CollapseCard extends LitElement {
   justify-content: space-between;
   align-items: center; 
 }
+
+.card-collapse{
+  list-style: none;
+  background-color: #e4f6f8;
+
+}
 .card-content {
-  display: none;
+  background: white;
 }
 .card.open .card-content {
   display: flex;
@@ -115,16 +121,18 @@ class CollapseCard extends LitElement {
 
   render() {
     return html`
-    
-      <div class="card ${this.open ? "open" : ""}">
-        <div class="card-header" @click=${this.toggleOpen}>
+    <div class="card">
+    <details class="card-content"  @toggle=${this.toggleOpen}>
+      <summary class="card-collapse">
+        <div class="card-header">
         <simple-icon accent-color="pink" icon="hardware:desktop-mac"></simple-icon>
           <h2 class="badgeHeader">${this.badgeHeader}</h2>
 
           <span class="arrowCard">${this.open ? "▲" : "▼"}</span>
         </div>
-        <div class="card-content">
-          <slot>
+      </summary>
+
+      <slot>
             
             <p>${this.badgeDescription}</p>
             <p>${"info link"}</p>
@@ -145,8 +153,8 @@ class CollapseCard extends LitElement {
            <p class="time-to-complete">${this.timeToComplete2}</p>
            </div>
           </slot>
-        </div>
-      </div>
+    </details>
+  </div>
       <p>${"         "}</p>
     `;
   }
@@ -155,7 +163,14 @@ class CollapseCard extends LitElement {
   
 
   toggleOpen() {
-    this.open = !this.open;
+    if(this.shadowRoot.querySelector('details').getAttribute('open') == ""){
+      this.open = true;
+      console.log("Toggle open is: " + this.open);
+    }
+    else{
+      this.open = false;
+      console.log("Toggle open is: " + this.open);
+    }
   }
 }
 
